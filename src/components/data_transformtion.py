@@ -1,0 +1,1 @@
+# contain code related to transformation of data i.e. converting categorical features to numerical features, how to handle one hot encoding, how to handle label encoding etc

@@ -1,0 +1,1 @@
+# contain/have all the code that is related to reading the data and divide data into train and test 
