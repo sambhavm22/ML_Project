@@ -10,11 +10,9 @@ import pandas as pd
 import pickle
 import dill
 
+
 from src.logger import logging
 from src.exception import CustomException
-
-from src.components import data_ingestion
-from src.components import data_transformtion
 
 def save_object(file_path, obj):
     try:
@@ -22,6 +20,6 @@ def save_object(file_path, obj):
         os.makedirs(dir_path, exist_ok=True)
 
         with open(file_path, "wb") as file_obj:
-            dill.dump(obj, file_path)
+            dill.dump(obj, file_obj)
     except Exception as e:
         raise CustomException(e, sys)
