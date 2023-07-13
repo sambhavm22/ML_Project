@@ -1,5 +1,5 @@
 import os
-import sys
+from sys import exc_info
 from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
@@ -50,7 +50,7 @@ class DataIngestion:
 
             )
         except Exception as e:
-            raise CustomException(e,sys)
+            raise CustomException(e, exc_info())
         
 if __name__=="__main__":
     obj=DataIngestion()

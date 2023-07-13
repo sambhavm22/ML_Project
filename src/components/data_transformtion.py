@@ -1,4 +1,4 @@
-import sys
+from sys import exc_info
 from dataclasses import dataclass
 
 import numpy as np 
@@ -71,7 +71,7 @@ class DataTransformation:
             return preprocessor
         
         except Exception as e:
-            raise CustomException(e,sys)
+            raise CustomException(e, exc_info())
         
     def initiate_data_transformation(self,train_path,test_path):
 
@@ -121,4 +121,4 @@ class DataTransformation:
                 self.data_transformation_config.preprocessor_obj_file_path,
             )
         except Exception as e:
-            raise CustomException(e,sys)
+            raise CustomException(e, exc_info())

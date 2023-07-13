@@ -1,5 +1,5 @@
 import os
-import sys
+from sys import exc_info
 
 import numpy as np 
 import pandas as pd
@@ -20,7 +20,7 @@ def save_object(file_path, obj):
             pickle.dump(obj, file_obj)
 
     except Exception as e:
-        raise CustomException(e, sys)
+        raise CustomException(e, exc_info())
     
 def evaluate_models(X_train, y_train,X_test,y_test,models,param):
     try:
@@ -50,7 +50,7 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
         return report
     except Exception as e:
-        raise CustomException(e, sys)
+        raise CustomException(e, exc_info())
     
 def load_object(file_path):
     try:
@@ -58,4 +58,4 @@ def load_object(file_path):
             return pickle.load(file_obj)
 
     except Exception as e:
-        raise CustomException(e, sys)
+        raise CustomException(e, exc_info())

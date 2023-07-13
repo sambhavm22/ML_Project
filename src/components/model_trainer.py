@@ -1,5 +1,5 @@
 import os
-import sys
+from sys import exc_info
 from dataclasses import dataclass
 
 from sklearn.ensemble import (
@@ -92,7 +92,7 @@ class ModelTrainer:
             best_model = models[best_model_name]
 
             if best_model_score<0.6:
-                raise CustomException("No best model found")
+                raise CustomException("No best model found", exc_info())
             logging.info(f"Best model found on dataset")
 
             save_object(
@@ -107,4 +107,4 @@ class ModelTrainer:
 
             
         except Exception as e:
-            raise CustomException(e,sys)
+            raise CustomException(e,exc_info())

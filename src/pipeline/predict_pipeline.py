@@ -1,4 +1,5 @@
-import os, sys
+import os
+from sys import exc_info
 import pandas as pd
 import numpy as np
 
@@ -27,14 +28,14 @@ class PredictPipeline:
             return pred 
         
         except Exception as e:
-            raise CustomException(e, sys)
+            raise CustomException(e, exc_info())
         
 
 class CustomData:
     def __init__(self,
                 gender: str,
                 race_ethnicity: str,
-                parental_level_of_education: str,
+                parental_level_of_education,
                 lunch: str,
                 test_preparation_course:str,
                 reading_score:int,
@@ -65,5 +66,5 @@ class CustomData:
 
 
         except Exception as e:
-            raise CustomException(e, sys)
+            raise CustomException(e, exc_info())
         
